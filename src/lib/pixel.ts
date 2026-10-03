@@ -27,8 +27,7 @@ export function initPixel() {
     const t = b.createElement(e) as HTMLScriptElement;
     t.async = true;
     t.src = v;
-    const s = b.getElementsByTagName(e)[0];
-    s.parentNode!.insertBefore(t, s);
+    b.head.appendChild(t);
   })(window, document, "script", "https://connect.facebook.net/en_US/fbevents.js");
   /* eslint-enable */
   window.fbq?.("init", id);
