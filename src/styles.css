@@ -153,7 +153,7 @@
 @utility shadow-soft { box-shadow: var(--shadow-soft); }
 @utility deco-blob { position: absolute; border-radius: 9999px; background: var(--deco); filter: blur(40px); pointer-events: none; }
 @utility link { color: var(--primary); text-decoration: underline; text-underline-offset: 3px; }
-@utility footer-link { color: var(--foreground); text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 3px; }
+@utility footer-link { color: oklch(0.42 0.1 135); text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 3px; }
 @utility btn-whatsapp {
   display: flex; width: 100%; align-items: center; justify-content: center; gap: 0.5rem;
   border-radius: 9999px; padding: 1.1rem 1.5rem; font-weight: 800; font-size: 1.125rem; letter-spacing: 0.02em;
