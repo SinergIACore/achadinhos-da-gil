@@ -110,15 +110,15 @@ function Index() {
           <span className="h-px flex-1 bg-primary/40" />
         </div>
 
-        <footer className="mt-6 text-sm text-muted-foreground">
-          <p className="text-base font-bold text-foreground">🧡 Achadinhos da Gil</p>
-          <p className="mt-1">Pequenos achados, grandes vantagens!</p>
-          <p className="mt-4 flex flex-wrap items-center justify-center gap-x-4 gap-y-2">
-            <a className="link inline-flex items-center gap-1.5" href={SITE.siteUrl} target="_blank" rel="noopener noreferrer">
+        <footer className="mt-6 text-sm text-foreground">
+          <p className="text-base font-bold">🧡 Achadinhos da Gil</p>
+          <p className="mt-1 font-semibold">Pequenos achados, grandes vantagens!</p>
+          <p className="mt-4 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 font-semibold">
+            <a className="footer-link inline-flex items-center gap-1.5" href={SITE.siteUrl} target="_blank" rel="noopener noreferrer">
               <Globe className="h-3.5 w-3.5" /> Site oficial: achadinhos.sinergia.club
             </a>
-            <a className="link" href={SITE.privacyUrl} target="_blank" rel="noopener noreferrer">Política de Privacidade</a>
-            <a className="link" href={SITE.termsUrl} target="_blank" rel="noopener noreferrer">Termos de Uso</a>
+            <a className="footer-link" href={SITE.privacyUrl} target="_blank" rel="noopener noreferrer">Política de Privacidade</a>
+            <a className="footer-link" href={SITE.termsUrl} target="_blank" rel="noopener noreferrer">Termos de Uso</a>
           </p>
         </footer>
       </div>
