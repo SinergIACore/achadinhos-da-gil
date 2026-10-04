@@ -7,6 +7,6 @@ export const SITE = {
   siteUrl: "https://achadinhos.sinergia.club/",
   privacyUrl: "https://sinergia.club/legal/privacidade.html",
   termsUrl: "https://sinergia.club/legal/termos.html",
-  // Leave empty to keep tracking disabled. Paste the real Pixel ID here.
-  metaPixelId: "",
+  // Meta Pixel ID (active).
+  metaPixelId: "1090172190164863",
 };
