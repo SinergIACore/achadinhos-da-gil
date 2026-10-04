@@ -103,6 +103,16 @@ function RootShell({ children }: { children: ReactNode }) {
       </head>
       <body>
         {children}
+        {/* Meta Pixel noscript fallback */}
+        <noscript>
+          <img
+            height="1"
+            width="1"
+            style={{ display: "none" }}
+            alt=""
+            src="https://www.facebook.com/tr?id=1090172190164863&ev=PageView&noscript=1"
+          />
+        </noscript>
         <Scripts />
       </body>
     </html>
