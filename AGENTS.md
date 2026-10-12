@@ -12,3 +12,6 @@
 - Keep invitation destinations and the Meta Pixel ID in the shared SITE configuration so page links and tracking use one source of truth.
 - Use the shared Button with an anchor child for the WhatsApp invitation so navigation preserves design-system behavior.
 - Use CDN asset pointers for marketplace logos and a duplicated CSS marquee with a reduced-motion fallback so imagery stays portable and accessible.
+- Serve size-constrained WebP copies of original raster logos with intrinsic dimensions, and preload the primary logo to prevent layout shifts and oversized downloads.
+- Host the used variable font through a CDN asset pointer and preload it rather than blocking rendering on third-party font stylesheets.
+- Prerender only explicitly listed visitor-independent public pages with automatic path discovery disabled so private routes cannot be captured.

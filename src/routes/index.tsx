@@ -4,9 +4,9 @@ import { RefreshCw, ShieldCheck, Heart, Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { SITE } from "@/config/site";
 import { initPixel, trackLead } from "@/lib/pixel";
-import amazonAsset from "@/assets/amazon-trimmed.png.asset.json";
-import shopeeAsset from "@/assets/shopee-trimmed.png.asset.json";
-import magaluAsset from "@/assets/magalu-trimmed.png.asset.json";
+import amazonAsset from "@/assets/amazon.webp.asset.json";
+import shopeeAsset from "@/assets/shopee.webp.asset.json";
+import magaluAsset from "@/assets/magalu.webp.asset.json";
 import sheinAsset from "@/assets/shein.svg.asset.json";
 import mercadoLivreAsset from "@/assets/mercado-livre.svg.asset.json";
 
@@ -27,7 +27,10 @@ export const Route = createFileRoute("/")({
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:image", content: SITE.logoUrl },
     ],
-    links: [{ rel: "canonical", href: "https://achadinhos-da-gil.lovable.app/" }],
+    links: [
+      { rel: "canonical", href: "https://achadinhos-da-gil.lovable.app/" },
+      { rel: "preload", as: "image", href: SITE.optimizedLogoUrl, fetchPriority: "high" },
+    ],
   }),
   component: Index,
 });
@@ -91,10 +94,13 @@ function Index() {
       </div>
       <div className="mx-auto flex w-full max-w-[440px] flex-col items-center px-5 pb-10 pt-4 text-center">
         <img
-          src={SITE.logoUrl}
+          src={SITE.optimizedLogoUrl}
           alt="Logo Achadinhos da Gil"
           className="h-auto w-44 max-w-full object-contain"
           loading="eager"
+          fetchPriority="high"
+          width={528}
+          height={352}
         />
 
         <h1 className="mt-3 text-[32px] font-extrabold leading-[1.12] text-foreground">
