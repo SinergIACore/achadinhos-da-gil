@@ -1,3 +1,3 @@
-- [ ] Adapt invitation information to the supplied reference.
-- [ ] Include Amazon, Shopee, Magazine Luiza, Shein and Mercado Livre logo assets.
-- [ ] Remove the commission disclosure and verify the invitation on desktop and mobile.
+- [x] Adapt invitation information to the supplied reference.
+- [x] Include Amazon, Shopee, Magazine Luiza, Shein and Mercado Livre logo assets.
+- [x] Remove the commission disclosure and verify the invitation on desktop and mobile.

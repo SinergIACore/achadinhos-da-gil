@@ -4,9 +4,9 @@ import { RefreshCw, ShieldCheck, Heart, Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { SITE } from "@/config/site";
 import { initPixel, trackLead } from "@/lib/pixel";
-import amazonAsset from "@/assets/amazon.png.asset.json";
-import shopeeAsset from "@/assets/shopee.png.asset.json";
-import magaluAsset from "@/assets/magalu.png.asset.json";
+import amazonAsset from "@/assets/amazon-trimmed.png.asset.json";
+import shopeeAsset from "@/assets/shopee-trimmed.png.asset.json";
+import magaluAsset from "@/assets/magalu-trimmed.png.asset.json";
 import sheinAsset from "@/assets/shein.svg.asset.json";
 import mercadoLivreAsset from "@/assets/mercado-livre.svg.asset.json";
 
