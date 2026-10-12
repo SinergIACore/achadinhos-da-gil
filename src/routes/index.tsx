@@ -92,7 +92,7 @@ function Index() {
         </div>
 
         <footer className="mt-6 w-full text-sm text-foreground">
-          <p className="text-base font-bold">🧡 Achadinhos da Gil</p>
+          <p className="flex items-center justify-center gap-1.5 text-base font-bold"><Heart aria-hidden="true" className="h-4 w-4 fill-primary text-primary" /> Achadinhos da Gil</p>
           <p className="mt-1 text-xs font-semibold">Pequenos achados, grandes vantagens!</p>
           <p className="mt-4 flex flex-wrap items-center justify-center gap-x-3 gap-y-2 text-xs font-semibold">
             <a className="footer-link inline-flex items-center gap-1.5" href={SITE.siteUrl} target="_blank" rel="noopener noreferrer">

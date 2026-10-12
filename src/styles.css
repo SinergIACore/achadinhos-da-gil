@@ -158,9 +158,8 @@
 @utility footer-link { color: var(--footer-link); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
 .invitation-banner { background: var(--whatsapp-hover); color: var(--whatsapp-foreground); }
 .benefit-check { fill: var(--whatsapp-hover); color: var(--whatsapp-foreground); }
-footer + p { color: var(--muted-foreground); }
 main [aria-hidden="true"] .fill-primary { fill: var(--heart); color: var(--heart); }
-@utility btn-whatsapp {
+.btn-whatsapp {
   display: flex; width: 100%; height: auto; min-height: 3.75rem; align-items: center; justify-content: center; gap: 0.6rem;
   border-radius: 0.75rem; padding: 1rem 0.75rem; font-weight: 900; font-size: 1rem; letter-spacing: 0; white-space: normal;
   background: var(--whatsapp); color: var(--whatsapp-foreground);
