@@ -1,13 +1,18 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect } from "react";
-import { CircleCheck, Heart, Globe } from "lucide-react";
+import { RefreshCw, ShieldCheck, Heart, Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { SITE } from "@/config/site";
 import { initPixel, trackLead } from "@/lib/pixel";
+import amazonAsset from "@/assets/amazon-trimmed.png.asset.json";
+import shopeeAsset from "@/assets/shopee-trimmed.png.asset.json";
+import magaluAsset from "@/assets/magalu-trimmed.png.asset.json";
+import sheinAsset from "@/assets/shein.svg.asset.json";
+import mercadoLivreAsset from "@/assets/mercado-livre.svg.asset.json";
 
-const TITLE = "Achadinhos da Gil — Grupo grátis de ofertas do Mercado Livre";
+const TITLE = "Achadinhos da Gil — Grupo grátis de ofertas e cupons";
 const DESC =
-  "Entre no grupo gratuito de WhatsApp Achadinhos da Gil e receba ofertas e descontos do Mercado Livre em um só lugar.";
+  "Entre no grupo gratuito de WhatsApp Achadinhos da Gil e encontre ofertas e cupons da Amazon, Shopee, Magazine Luiza, Shein e Mercado Livre.";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -28,9 +33,35 @@ export const Route = createFileRoute("/")({
 });
 
 const benefits = [
-  "Ofertas e achadinhos todos os dias",
-  "Promoções selecionadas para você economizar",
+  "Ofertas pesquisadas e avaliadas para garantir menor preço e melhor qualidade",
+  "Entre agora no grupo de promoções e cupons de desconto",
 ];
+
+const marketplaces = [
+  { name: "Amazon", asset: amazonAsset },
+  { name: "Shopee", asset: shopeeAsset },
+  { name: "Magazine Luiza", asset: magaluAsset },
+  { name: "Shein", asset: sheinAsset },
+  { name: "Mercado Livre", asset: mercadoLivreAsset },
+];
+
+function MarketplaceStrip() {
+  return (
+    <div className="marketplace-strip mt-5 w-full" role="img" aria-label="Ofertas da Amazon, Shopee, Magazine Luiza, Shein e Mercado Livre">
+      <div className="marketplace-track">
+        {[0, 1].map((copy) => (
+          <div key={copy} className="marketplace-group" aria-hidden={copy === 1 ? true : undefined}>
+            {marketplaces.map(({ name, asset }) => (
+              <span key={name} className="marketplace-logo">
+                <img src={asset.url} alt={copy === 0 ? name : ""} width="88" height="40" />
+              </span>
+            ))}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
 
 function WhatsAppIcon({ className }: { className?: string }) {
   return (
@@ -45,7 +76,7 @@ function JoinButton() {
     <Button asChild className="btn-whatsapp">
       <a href={SITE.whatsappUrl} target="_blank" rel="noopener noreferrer" onClick={trackLead}>
         <WhatsAppIcon className="h-6 w-6 shrink-0" />
-        <span>ENTRAR NO GRUPO GRÁTIS</span>
+        <span>Entrar no grupo do WhatsApp</span>
       </a>
     </Button>
   );
@@ -67,23 +98,33 @@ function Index() {
         />
 
         <h1 className="mt-3 text-[32px] font-extrabold leading-[1.12] text-foreground">
-          Grupo de Ofertas
-          <span className="block text-primary">Achadinhos da Gil</span>
+          <span className="block text-primary">Achadinhos da Gil!</span>
         </h1>
         <p className="mt-2 text-base leading-relaxed text-muted-foreground">
-          Economize com ofertas selecionadas<br />do Mercado Livre!
+          Aqui você encontra ofertas de qualidade e com bom gosto por um preço que cabe no seu bolso!
         </p>
+
+        <MarketplaceStrip />
 
         <ul className="mt-4 grid w-full gap-2">
           {benefits.map((text) => (
-            <li key={text} className="grid grid-cols-[auto_minmax(0,1fr)] items-center gap-3 rounded-lg border border-border bg-card px-3 py-2.5 text-left shadow-soft">
-              <CircleCheck className="benefit-check h-5 w-5 shrink-0" />
-              <span className="min-w-0 text-sm font-extrabold leading-snug text-card-foreground">{text}</span>
+            <li key={text} className="grid grid-cols-[auto_minmax(0,1fr)] items-start gap-3 py-2 text-left">
+              <RefreshCw className="mt-0.5 h-5 w-5 shrink-0 text-primary" aria-hidden="true" />
+              <span className="min-w-0 text-sm font-semibold leading-relaxed text-foreground">{text}</span>
             </li>
           ))}
         </ul>
 
         <div className="mt-5 w-full"><JoinButton /></div>
+
+        <section className="mt-7 w-full" aria-labelledby="trust-heading">
+          <h2 id="trust-heading" className="flex items-center justify-center gap-2 text-sm font-extrabold text-primary">
+            <ShieldCheck className="h-5 w-5" aria-hidden="true" /> É CONFIÁVEL?
+          </h2>
+          <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
+            Sim, somente moderadores do grupo podem enviar promoções exclusivas, com links verificados para você comprar nas lojas.
+          </p>
+        </section>
 
         <div className="mt-9 flex w-full items-center gap-3" aria-hidden="true">
           <span className="h-px flex-1 bg-primary/40" />
@@ -100,9 +141,6 @@ function Index() {
             </a>
             <a className="footer-link" href={SITE.privacyUrl} target="_blank" rel="noopener noreferrer">Política de Privacidade</a>
             <a className="footer-link basis-full" href={SITE.termsUrl} target="_blank" rel="noopener noreferrer">Termos de Uso</a>
-          </p>
-          <p className="mx-auto mt-5 max-w-[300px] text-[11px] leading-relaxed text-muted-foreground">
-            Podemos receber comissão pelas compras realizadas através dos nossos links, sem custo adicional para você.
           </p>
         </footer>
       </div>
