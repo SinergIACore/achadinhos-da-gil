@@ -2,6 +2,14 @@
 @source "../src";
 @import "tw-animate-css";
 
+@font-face {
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 200 900;
+  font-display: swap;
+  src: url("/__l5e/assets-v1/db204193-07d9-4b55-b7a9-63f949cf0f95/nunito-latin.woff2") format("woff2");
+}
+
 @custom-variant dark (&:is(.dark *));
 
 /*
