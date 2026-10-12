@@ -1,3 +1,6 @@
 - [x] Adapt invitation information to the supplied reference.
 - [x] Include Amazon, Shopee, Magazine Luiza, Shein and Mercado Livre logo assets.
 - [x] Remove the commission disclosure and verify the invitation on desktop and mobile.
+- [ ] Reduce image weight and eliminate layout shifts while preserving design and tracking.
+- [ ] Remove font-loading bottlenecks and prerender the public page.
+- [ ] Verify navigation, Pixel and the measured performance outcome.
