@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect } from "react";
-import { Tag, ShieldCheck, Zap, Info, ArrowRight, Lock, Heart, Globe } from "lucide-react";
+import { CircleCheck, Heart, Globe } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import { SITE } from "@/config/site";
 import { initPixel, trackLead } from "@/lib/pixel";
 
@@ -16,19 +17,19 @@ export const Route = createFileRoute("/")({
       { property: "og:title", content: TITLE },
       { property: "og:description", content: DESC },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://achadinhos-da-gil.lovable.app/" },
       { property: "og:image", content: SITE.logoUrl },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:image", content: SITE.logoUrl },
     ],
+    links: [{ rel: "canonical", href: "https://achadinhos-da-gil.lovable.app/" }],
   }),
   component: Index,
 });
 
-const cards = [
-  { icon: Tag, title: "Ofertas selecionadas", text: "Produtos em promoção, descontos e achadinhos compartilhados automaticamente." },
-  { icon: ShieldCheck, title: "Compra segura", text: "Os links levam você ao Mercado Livre, onde poderá conferir todos os detalhes, preço, vendedor, frete e condições antes de comprar." },
-  { icon: Zap, title: "Não perca as oportunidades", text: "Preços, descontos e disponibilidade podem mudar a qualquer momento. Confira sempre o valor final no Mercado Livre antes de concluir a compra." },
-  { icon: Info, title: "Transparência", text: "Participamos do programa de afiliados e podemos receber comissão pelas compras realizadas através dos nossos links, sem custo adicional para você." },
+const benefits = [
+  "Ofertas e achadinhos todos os dias",
+  "Promoções selecionadas para você economizar",
 ];
 
 function WhatsAppIcon({ className }: { className?: string }) {
@@ -41,84 +42,67 @@ function WhatsAppIcon({ className }: { className?: string }) {
 
 function JoinButton() {
   return (
-    <a href={SITE.whatsappUrl} target="_blank" rel="noopener noreferrer" onClick={trackLead} className="btn-whatsapp">
-      <WhatsAppIcon className="h-6 w-6 shrink-0" />
-      ENTRAR NO GRUPO GRÁTIS <ArrowRight className="h-5 w-5 shrink-0" />
-    </a>
-  );
-}
-
-function Swooshes({ flip }: { flip?: boolean }) {
-  return (
-    <div aria-hidden="true" className={`pointer-events-none absolute inset-x-0 ${flip ? "bottom-0 rotate-180" : "top-0"} h-40 sm:h-56`}>
-      <svg viewBox="0 0 1440 320" preserveAspectRatio="none" className="h-full w-full">
-        <path fill="oklch(0.82 0.14 65 / 45%)" d="M0,0 C240,140 480,220 720,200 C960,180 1200,90 1440,40 L1440,0 Z" />
-        <path fill="oklch(0.75 0.16 55 / 55%)" d="M0,0 C200,90 460,170 720,150 C980,130 1240,50 1440,10 L1440,0 Z" />
-        <path fill="oklch(0.68 0.19 45 / 70%)" d="M0,0 C260,60 520,110 780,95 C1040,80 1260,30 1440,0 L1440,0 Z" />
-      </svg>
-    </div>
+    <Button asChild className="btn-whatsapp">
+      <a href={SITE.whatsappUrl} target="_blank" rel="noopener noreferrer" onClick={trackLead}>
+        <WhatsAppIcon className="h-6 w-6 shrink-0" />
+        <span>ENTRAR NO GRUPO GRÁTIS</span>
+      </a>
+    </Button>
   );
 }
 
 function Index() {
   useEffect(() => initPixel(), []);
   return (
-    <main className="relative min-h-screen overflow-hidden bg-background">
-      <Swooshes />
-      <Swooshes flip />
-
-      <div className="relative mx-auto flex max-w-xl flex-col items-center px-5 py-12 text-center">
+    <main className="min-h-screen bg-background">
+      <div className="invitation-banner px-4 py-3 text-center text-[11px] font-extrabold uppercase">
+        Participe do nosso grupo gratuitamente
+      </div>
+      <div className="mx-auto flex w-full max-w-[440px] flex-col items-center px-5 pb-10 pt-4 text-center">
         <img
           src={SITE.logoUrl}
           alt="Logo Achadinhos da Gil"
-          className="h-auto w-60 max-w-full object-contain drop-shadow-xl sm:w-72"
+          className="h-auto w-44 max-w-full object-contain"
           loading="eager"
         />
 
-        <h1 className="mt-6 font-display text-3xl font-extrabold leading-tight text-foreground sm:text-4xl">
-          Bem-vindo ao Achadinhos da Gil!
+        <h1 className="mt-3 text-[32px] font-extrabold leading-[1.12] text-foreground">
+          Grupo de Ofertas
+          <span className="block text-primary">Achadinhos da Gil</span>
         </h1>
-        <p className="mt-3 max-w-md text-base leading-relaxed text-muted-foreground sm:text-lg">
-          Nosso objetivo é ajudar você a encontrar boas ofertas e oportunidades no Mercado Livre, reunidas em um só lugar. 🔥
+        <p className="mt-2 text-base leading-relaxed text-muted-foreground">
+          Economize com ofertas selecionadas<br />do Mercado Livre!
         </p>
 
-        <div className="mt-7 w-full"><JoinButton /></div>
-        <p className="mt-4 inline-flex items-center gap-2 rounded-full bg-accent px-5 py-2.5 text-[11px] font-extrabold uppercase tracking-wide text-accent-foreground shadow-soft sm:text-xs">
-          <Lock className="h-3.5 w-3.5 shrink-0 text-primary" />
-          Grupo gratuito com produtos do Mercado Livre para você economizar
-        </p>
-
-        <div className="mt-10 grid w-full gap-4">
-          {cards.map(({ icon: Icon, title, text }) => (
-            <div key={title} className="flex items-start gap-4 rounded-2xl bg-card p-5 text-left shadow-soft">
-              <div className="grid h-12 w-12 shrink-0 place-items-center rounded-xl bg-primary/15">
-                <Icon className="h-6 w-6 text-primary" />
-              </div>
-              <div>
-                <h2 className="text-base font-bold text-card-foreground">{title}</h2>
-                <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{text}</p>
-              </div>
-            </div>
+        <ul className="mt-4 grid w-full gap-2">
+          {benefits.map((text) => (
+            <li key={text} className="grid grid-cols-[auto_minmax(0,1fr)] items-center gap-3 rounded-lg border border-border bg-card px-3 py-2.5 text-left shadow-soft">
+              <CircleCheck className="benefit-check h-5 w-5 shrink-0" />
+              <span className="min-w-0 text-sm font-extrabold leading-snug text-card-foreground">{text}</span>
+            </li>
           ))}
-        </div>
+        </ul>
 
-        <div className="mt-10 w-full"><JoinButton /></div>
+        <div className="mt-5 w-full"><JoinButton /></div>
 
-        <div className="mt-10 flex w-full items-center gap-3" aria-hidden="true">
+        <div className="mt-9 flex w-full items-center gap-3" aria-hidden="true">
           <span className="h-px flex-1 bg-primary/40" />
           <Heart className="h-4 w-4 fill-primary text-primary" />
           <span className="h-px flex-1 bg-primary/40" />
         </div>
 
-        <footer className="mt-6 text-sm text-foreground">
+        <footer className="mt-6 w-full text-sm text-foreground">
           <p className="text-base font-bold">🧡 Achadinhos da Gil</p>
-          <p className="mt-1 font-semibold">Pequenos achados, grandes vantagens!</p>
-          <p className="mt-4 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 font-semibold">
+          <p className="mt-1 text-xs font-semibold">Pequenos achados, grandes vantagens!</p>
+          <p className="mt-4 flex flex-wrap items-center justify-center gap-x-3 gap-y-2 text-xs font-semibold">
             <a className="footer-link inline-flex items-center gap-1.5" href={SITE.siteUrl} target="_blank" rel="noopener noreferrer">
               <Globe className="h-3.5 w-3.5" /> Site oficial: achadinhos.sinergia.club
             </a>
             <a className="footer-link" href={SITE.privacyUrl} target="_blank" rel="noopener noreferrer">Política de Privacidade</a>
-            <a className="footer-link" href={SITE.termsUrl} target="_blank" rel="noopener noreferrer">Termos de Uso</a>
+            <a className="footer-link basis-full" href={SITE.termsUrl} target="_blank" rel="noopener noreferrer">Termos de Uso</a>
+          </p>
+          <p className="mx-auto mt-5 max-w-[300px] text-[11px] leading-relaxed text-muted-foreground">
+            Podemos receber comissão pelas compras realizadas através dos nossos links, sem custo adicional para você.
           </p>
         </footer>
       </div>
