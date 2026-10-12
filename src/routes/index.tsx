@@ -23,9 +23,7 @@ export const Route = createFileRoute("/")({
       { property: "og:description", content: DESC },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://achadinhos-da-gil.lovable.app/" },
-      { property: "og:image", content: SITE.logoUrl },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:image", content: SITE.logoUrl },
     ],
     links: [
       { rel: "canonical", href: "https://achadinhos-da-gil.lovable.app/" },

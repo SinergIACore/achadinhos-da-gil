@@ -1,6 +1,7 @@
 - [x] Adapt invitation information to the supplied reference.
 - [x] Include Amazon, Shopee, Magazine Luiza, Shein and Mercado Livre logo assets.
 - [x] Remove the commission disclosure and verify the invitation on desktop and mobile.
-- [ ] Reduce image weight and eliminate layout shifts while preserving design and tracking.
-- [ ] Remove font-loading bottlenecks and prerender the public page.
-- [ ] Verify navigation, Pixel and the measured performance outcome.
+- [x] Reduce image weight and reserve logo space while preserving design and tracking.
+- [x] Remove font-loading bottlenecks and configure public-page prerendering.
+- [x] Verify image/font loading, WhatsApp navigation and PageView/Lead queues.
+- [ ] Confirm a mobile PageSpeed score of at least 90 after the user publishes the optimized version; the published site still serves the previous version.
