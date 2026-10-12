@@ -4,6 +4,11 @@ import { RefreshCw, ShieldCheck, Heart, Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { SITE } from "@/config/site";
 import { initPixel, trackLead } from "@/lib/pixel";
+import amazonAsset from "@/assets/amazon.png.asset.json";
+import shopeeAsset from "@/assets/shopee.png.asset.json";
+import magaluAsset from "@/assets/magalu.png.asset.json";
+import sheinAsset from "@/assets/shein.svg.asset.json";
+import mercadoLivreAsset from "@/assets/mercado-livre.svg.asset.json";
 
 const TITLE = "Achadinhos da Gil — Grupo grátis de ofertas e cupons";
 const DESC =
@@ -31,6 +36,32 @@ const benefits = [
   "Ofertas pesquisadas e avaliadas para garantir menor preço e melhor qualidade",
   "Entre agora no grupo de promoções e cupons de desconto",
 ];
+
+const marketplaces = [
+  { name: "Amazon", asset: amazonAsset },
+  { name: "Shopee", asset: shopeeAsset },
+  { name: "Magazine Luiza", asset: magaluAsset },
+  { name: "Shein", asset: sheinAsset },
+  { name: "Mercado Livre", asset: mercadoLivreAsset },
+];
+
+function MarketplaceStrip() {
+  return (
+    <div className="marketplace-strip mt-5 w-full" role="img" aria-label="Ofertas da Amazon, Shopee, Magazine Luiza, Shein e Mercado Livre">
+      <div className="marketplace-track">
+        {[0, 1].map((copy) => (
+          <div key={copy} className="marketplace-group" aria-hidden={copy === 1 ? true : undefined}>
+            {marketplaces.map(({ name, asset }) => (
+              <span key={name} className="marketplace-logo">
+                <img src={asset.url} alt={copy === 0 ? name : ""} width="88" height="40" />
+              </span>
+            ))}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
 
 function WhatsAppIcon({ className }: { className?: string }) {
   return (
@@ -72,6 +103,8 @@ function Index() {
         <p className="mt-2 text-base leading-relaxed text-muted-foreground">
           Aqui você encontra ofertas de qualidade e com bom gosto por um preço que cabe no seu bolso!
         </p>
+
+        <MarketplaceStrip />
 
         <ul className="mt-4 grid w-full gap-2">
           {benefits.map((text) => (

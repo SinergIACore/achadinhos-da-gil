@@ -11,3 +11,4 @@
 
 - Keep invitation destinations and the Meta Pixel ID in the shared SITE configuration so page links and tracking use one source of truth.
 - Use the shared Button with an anchor child for the WhatsApp invitation so navigation preserves design-system behavior.
+- Use CDN asset pointers for marketplace logos and a duplicated CSS marquee with a reduced-motion fallback so imagery stays portable and accessible.
