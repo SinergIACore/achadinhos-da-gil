@@ -43,7 +43,7 @@ const marketplaces = [
 
 function MarketplaceStrip() {
   return (
-    <ul className="mt-5 flex w-full flex-wrap justify-center gap-x-4 gap-y-2 py-3 text-xs font-bold text-muted-foreground" aria-label="Lojas com ofertas">
+    <ul className="mt-4 flex w-full flex-wrap justify-center gap-x-4 gap-y-2 border-y border-border py-3 text-xs font-bold text-muted-foreground" aria-label="Lojas com ofertas">
       {marketplaces.map((name) => <li key={name}>{name}</li>)}
     </ul>
   );
@@ -89,31 +89,33 @@ function Index() {
         <h1 className="mt-3 text-[32px] font-extrabold leading-[1.12] text-foreground">
           <span className="block text-primary">Achadinhos da Gil!</span>
         </h1>
-        <p className="mt-2 text-base leading-relaxed text-muted-foreground">
-          Aqui você encontra ofertas de qualidade e com bom gosto por um preço que cabe no seu bolso!
-        </p>
-
-        <MarketplaceStrip />
-
-        <ul className="mt-4 grid w-full gap-2">
-          {benefits.map((text) => (
-            <li key={text} className="grid grid-cols-[auto_minmax(0,1fr)] items-start gap-3 py-2 text-left">
-              <RefreshCw className="mt-0.5 h-5 w-5 shrink-0 text-primary" aria-hidden="true" />
-              <span className="min-w-0 text-sm font-semibold leading-relaxed text-foreground">{text}</span>
-            </li>
-          ))}
-        </ul>
-
-        <div className="mt-5 w-full"><JoinButton /></div>
-
-        <section className="mt-7 w-full" aria-labelledby="trust-heading">
-          <h2 id="trust-heading" className="flex items-center justify-center gap-2 text-sm font-extrabold text-primary">
-            <ShieldCheck className="h-5 w-5" aria-hidden="true" /> É CONFIÁVEL?
-          </h2>
-          <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
-            Sim, somente moderadores do grupo podem enviar promoções exclusivas, com links verificados para você comprar nas lojas.
+        <div className="mt-4 w-full rounded-3xl border border-border bg-card p-5 shadow-soft">
+          <p className="text-base leading-relaxed text-muted-foreground">
+            Aqui você encontra ofertas de qualidade e com bom gosto por um preço que cabe no seu bolso!
           </p>
-        </section>
+
+          <MarketplaceStrip />
+
+          <ul className="mt-3 grid w-full gap-2">
+            {benefits.map((text) => (
+              <li key={text} className="grid grid-cols-[auto_minmax(0,1fr)] items-start gap-3 py-2 text-left">
+                <RefreshCw className="mt-0.5 h-5 w-5 shrink-0 text-primary" aria-hidden="true" />
+                <span className="min-w-0 text-sm font-semibold leading-relaxed text-foreground">{text}</span>
+              </li>
+            ))}
+          </ul>
+
+          <div className="mt-4 w-full"><JoinButton /></div>
+
+          <section className="mt-6 w-full" aria-labelledby="trust-heading">
+            <h2 id="trust-heading" className="flex items-center justify-center gap-2 text-sm font-extrabold text-primary">
+              <ShieldCheck className="h-5 w-5" aria-hidden="true" /> É CONFIÁVEL?
+            </h2>
+            <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
+              Sim, somente moderadores do grupo podem enviar promoções exclusivas, com links verificados para você comprar nas lojas.
+            </p>
+          </section>
+        </div>
 
         <div className="mt-9 flex w-full items-center gap-3" aria-hidden="true">
           <span className="h-px flex-1 bg-primary/40" />
