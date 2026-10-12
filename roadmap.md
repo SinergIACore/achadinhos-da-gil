@@ -4,4 +4,5 @@
 - [x] Reduce image weight and reserve logo space while preserving design and tracking.
 - [x] Remove font-loading bottlenecks and configure public-page prerendering.
 - [x] Verify image/font loading, WhatsApp navigation and PageView/Lead queues.
-- [ ] Confirm a mobile PageSpeed score of at least 90 after the user publishes the optimized version; the published site still serves the previous version.
+- [x] Replace marketplace images and animation with static store names for the requested performance comparison.
+- [ ] Confirm a mobile PageSpeed score of at least 90 after publication and a fresh PageSpeed test; the new score is not yet measured.
